@@ -853,7 +853,6 @@ const HeaderMD = () => {
                       />
                     </div>
                     <div className="flex justify-between mt-4">
-                     
                       <Link className="text-[#cc0700]">
                         I forgot my password
                       </Link>
