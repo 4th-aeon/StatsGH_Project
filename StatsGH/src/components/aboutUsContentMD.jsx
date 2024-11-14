@@ -24,9 +24,9 @@ const AboutUsContent = () => {
 
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col justify-center  px-[5%]">
-            <p className="text-[#cc0700] font-EB font-black md:text-xl lg:text-2xl z-10">
+            {/* <p className="text-[#cc0700] font-EB font-black md:text-xl lg:text-2xl z-10">
               ABOUT GHANACRIMES
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
@@ -45,8 +45,8 @@ const AboutUsContent = () => {
         {""}
         Partnering closely with local law enforcement, we prioritize accuracy
         and integrity in our reporting, offering insights that go beyond the
-        headlines. At GhanaCrimes, we believe that awareness is a powerful tool
-        for community safety, justice, and accountability.
+        headlines. At StatsGH, we believe that awareness is a powerful tool for
+        community safety, justice, and accountability.
         <br />
         {""}
         By bringing hidden stories to light and covering high-impact cases, our
