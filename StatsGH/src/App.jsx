@@ -10,6 +10,7 @@ import SearchResults from "./pages/results";
 function App() {
   return (
     <Routes>
+      <Route index element={<HomePage />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/about-us" element={<AboutUS />} />
       <Route path="/news/:slug" element={<NewsPage />} />
