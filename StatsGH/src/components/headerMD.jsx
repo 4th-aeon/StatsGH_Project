@@ -281,7 +281,7 @@ const HeaderMD = () => {
           </div>
           {/* Logo */}
           <Link className="flex justify-center mt-6" to="/">
-            <img src={Logo} alt="StatsGH Logo" className="w-[350px] h-[60px]" />
+            <img src={Logo} alt="StatsGH Logo" className="w-[350px] h-[70px]" />
           </Link>
           {/* Navbar Wrapper */}
           <div className="flex flex-wrap justify-between space-x-4 items-center text-lg">
