@@ -23,7 +23,7 @@ const Footer = () => {
                 <Link to={"/about-us"} className="hover:text-[#cc0700]">
                   About us
                 </Link>
-                <Link to={"/"} className="hover:text-[#cc0700]">
+                <Link to={"/contact-us"} className="hover:text-[#cc0700]">
                   Contact us
                 </Link>
               </div>
