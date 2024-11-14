@@ -126,7 +126,7 @@ const AdsRequestContentSM = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className=" bg-[#f06c00] text-white rounded-full px-8 py-4 font-semibold text-lg "
+                className=" bg-[#cc0700] text-white rounded-full px-8 py-4 font-semibold text-lg "
               >
                 {isSubmitting ? "SENDING" : "SEND MESSAGE"}
               </button>
