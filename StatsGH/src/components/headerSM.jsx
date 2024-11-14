@@ -278,7 +278,7 @@ const HeaderSM = () => {
           to="/"
           className=" flex-auto"
         >
-          <img src={Logo} alt="StatsGH Logo" className="w-[230px] h-[40px]" />
+          <img src={Logo} alt="StatsGH Logo" className="w-[230px] h-[45px]" />
         </Link>
         <button
           onClick={() => {
