@@ -51,7 +51,7 @@ const AdsRequestContentSM = () => {
           alt="Advertisement Banner"
           className="w-full object-cover"
         />
-        <p className="text-[#f06c00] font-EB font-bold text-xl mt-4">
+        <p className="text-[#cc0700] font-EB font-bold text-xl mt-4">
           Advertise with us
         </p>
         <p className="text-gray-800 mt-2">

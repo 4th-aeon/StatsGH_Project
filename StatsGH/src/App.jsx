@@ -7,8 +7,10 @@ import AdsRequest from "./pages/adsRequest";
 import ContactUS from "./pages/contactUS";
 import SearchResults from "./pages/results";
 import MyAccount from "./pages/myAccount";
+import { useScrollToTop } from "./components/scrollToTop";
 
 function App() {
+  useScrollToTop();
   return (
     <Routes>
       <Route index element={<HomePage />} />
