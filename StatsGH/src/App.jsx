@@ -6,6 +6,7 @@ import TopicsNewsList from "./pages/topicNewsList";
 import AdsRequest from "./pages/adsRequest";
 import ContactUS from "./pages/contactUS";
 import SearchResults from "./pages/results";
+import MyAccount from "./pages/myAccount";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/advertisement-request" element={<AdsRequest />} />
       <Route path="/contact-us" element={<ContactUS />} />
       <Route path="/results" element={<SearchResults />} />
+      <Route path="/my-account" element={<MyAccount />} />
     </Routes>
   );
 }
