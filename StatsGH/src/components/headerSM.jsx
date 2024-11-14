@@ -768,10 +768,7 @@ const HeaderSM = () => {
                     />
                   </div>
                   <div className="flex justify-between mt-4">
-                    <div className="flex space-x-3">
-                      <input type="checkbox" name="" id="" />
-                      <p>Stay logged in</p>
-                    </div>
+                    
                     <Link className="text-[#cc0700]">I forgot my password</Link>
                   </div>
                   <button
