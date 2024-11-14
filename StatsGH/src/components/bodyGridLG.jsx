@@ -84,13 +84,13 @@ const BodyGridLG = () => {
                       />
                     </div>
                     <div className="flex items-center text-[0.65rem] mt-2 justify-between">
-                      <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                      <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                         {articles[2].topic
                           ? articles[2].topic?.toUpperCase()
                           : "General News".toUpperCase()}
                       </p>
                       {articles[2].total_comments ? (
-                        <div className="flex items-center gap-x-2 text-[#f06c00]">
+                        <div className="flex items-center gap-x-2 text-[#cc0700]">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={16}
@@ -108,7 +108,7 @@ const BodyGridLG = () => {
                         <></>
                       )}
                     </div>
-                    <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                    <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                       {capitalizeCharOne(articles[2].main_title)}
                     </p>
                   </Link>
@@ -124,13 +124,13 @@ const BodyGridLG = () => {
                         />
                       </div>
                       <div className="flex items-center text-[0.65rem] mt-2 justify-between">
-                        <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                        <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                           {articles[3].topic
                             ? articles[3].topic?.toUpperCase()
                             : "General News".toUpperCase()}
                         </p>
                         {articles[2].total_comments ? (
-                          <div className="flex items-center gap-x-2 text-[#f06c00]">
+                          <div className="flex items-center gap-x-2 text-[#cc0700]">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width={16}
@@ -148,7 +148,7 @@ const BodyGridLG = () => {
                           <></>
                         )}
                       </div>
-                      <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                      <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                         {capitalizeCharOne(articles[3].main_title)}
                       </p>
                     </Link>
@@ -170,13 +170,13 @@ const BodyGridLG = () => {
                         />
                       </div>
                       <div className="flex items-center justify-between mt-2">
-                        <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                        <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                           {articles[0].topic
                             ? articles[0].topic?.toUpperCase()
                             : "General News".toUpperCase()}
                         </p>
                         {articles[0].total_comments ? (
-                          <div className="flex items-center text-[0.65rem] gap-x-2 text-[#f06c00]">
+                          <div className="flex items-center text-[0.65rem] gap-x-2 text-[#cc0700]">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width={16}
@@ -194,7 +194,7 @@ const BodyGridLG = () => {
                           <></>
                         )}
                       </div>
-                      <p className="text-[#393939] text-xl lg:text-3xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                      <p className="text-[#393939] text-xl lg:text-3xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                         {capitalizeCharOne(articles[0].main_title)}
                       </p>
                       <p className="text-sm pt-2 font-normal text-slate-600 border-b border-[#AEAEAE] border-dotted pb-4">
@@ -218,13 +218,13 @@ const BodyGridLG = () => {
                       </div>
                       <div className="">
                         <div className="flex items-center text-[0.65rem] mt-2 justify-between">
-                          <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                          <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                             {articles[1].topic
                               ? articles[1].topic?.toUpperCase()
                               : "General News".toUpperCase()}
                           </p>
                           {articles[2].total_comments ? (
-                            <div className="flex items-center gap-x-2 text-[#f06c00]">
+                            <div className="flex items-center gap-x-2 text-[#cc0700]">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width={16}
@@ -242,7 +242,7 @@ const BodyGridLG = () => {
                             <></>
                           )}
                         </div>
-                        <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                        <p className="text-[#393939] text-xl lg:text-2xl leading-tight mt-2 transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                           {capitalizeCharOne(articles[1].main_title)}
                         </p>
                       </div>
@@ -266,13 +266,13 @@ const BodyGridLG = () => {
                     />
                   </div>
                   <div className="flex items-center text-[0.65rem] mt-2 justify-between">
-                    <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                    <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                       {articles[4].topic
                         ? articles[4].topic?.toUpperCase()
                         : "General News".toUpperCase()}
                     </p>
                     {articles[4].total_comments ? (
-                      <div className="flex items-center gap-x-2 text-[#f06c00]">
+                      <div className="flex items-center gap-x-2 text-[#cc0700]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={16}
@@ -290,7 +290,7 @@ const BodyGridLG = () => {
                       <></>
                     )}
                   </div>
-                  <p className="text-[#393939] text-xl lg:text-2xl mt-2 leading-tight transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                  <p className="text-[#393939] text-xl lg:text-2xl mt-2 leading-tight transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                     {capitalizeCharOne(articles[4].main_title)}
                   </p>
                 </Link>
@@ -308,13 +308,13 @@ const BodyGridLG = () => {
                     />
                   </div>
                   <div className="flex items-center text-[0.65rem] mt-2 justify-between">
-                    <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+                    <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
                       {articles[5].topic
                         ? articles[5].topic?.toUpperCase()
                         : "General News".toUpperCase()}
                     </p>
                     {articles[5].total_comments ? (
-                      <div className="flex items-center gap-x-2 text-[#f06c00]">
+                      <div className="flex items-center gap-x-2 text-[#cc0700]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width={16}
@@ -332,7 +332,7 @@ const BodyGridLG = () => {
                       <></>
                     )}
                   </div>
-                  <p className="text-[#393939] text-xl lg:text-2xl mt-2 leading-tight transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+                  <p className="text-[#393939] text-xl lg:text-2xl mt-2 leading-tight transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
                     {capitalizeCharOne(articles[5].main_title)}
                   </p>
                 </Link>
