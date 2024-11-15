@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import NewsCard from "./newsCard";
 import TopicHeading from "./topicHeading";
-// import AdvertisementSection from "./adsComponents";
+import AdvertisementSection from "./adsComponents";
 
 const TopicsNewsListContent = () => {
   const [articles, setArticles] = useState([]);
@@ -125,7 +125,7 @@ const TopicsNewsListContent = () => {
             onClick={handlePreviousPage}
             className={`${
               hasPreviousPage ? "flex border-r" : "hidden"
-            }bg-[#f06c00] text-white rounded-full px-4 py-2 font-semibold text-sm cursor-pointer`}
+            }bg-[#cc0700] text-white rounded-full px-4 py-2 font-semibold text-sm cursor-pointer`}
           >
             Previous
           </button>
@@ -133,7 +133,7 @@ const TopicsNewsListContent = () => {
             onClick={handleNextPage}
             className={`${
               hasNextPage ? "flex" : "hidden"
-            }bg-[#f06c00] text-white rounded-full px-4 py-2 font-semibold text-sm cursor-pointer`}
+            }bg-[#cc0700] text-white rounded-full px-4 py-2 font-semibold text-sm cursor-pointer`}
           >
             More articles &gt;&gt;
           </button>

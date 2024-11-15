@@ -14,13 +14,13 @@ const NewsCard = ({ articleData, className }) => {
       </div>
       <div className={className}>
         <div className="flex text-[0.65rem] items-center mt-2 justify-between">
-          <p className="text-xs font-medium text-[#f06c00] transition-colors duration-300 ease-in-out hover:text-[#666666]">
+          <p className="text-xs font-medium text-[#cc0700] transition-colors duration-300 ease-in-out hover:text-[#666666]">
             {articleData.topic
               ? articleData.topic?.toUpperCase()
               : "General News".toUpperCase()}
           </p>
           {articleData.total_comments ? (
-            <div className="flex items-center gap-x-2 text-[#f06c00]">
+            <div className="flex items-center gap-x-2 text-[#cc0700]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={16}
