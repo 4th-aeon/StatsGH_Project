@@ -105,7 +105,7 @@ const NewsComponent = () => {
         {/* <p className="text-sm text-[#f06c00] mt-2">
           {relatedArticle.topic?.toUpperCase()}
         </p> */}
-        <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#f06c00] font-EB font-semibold transition-colors duration-300">
+        <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
           {relatedArticle.main_title}
         </p>
       </Link>
