@@ -44,7 +44,7 @@ export const fetchNewsTopics = async () => {
   try {
     const url = `${BASE_URL}/topics/`;
     const response = await axios.get(url);
-    console.log(response.data.results);
+    // console.log(response.data.results);
 
     return response.data;
   } catch (error) {

@@ -33,7 +33,7 @@ const TopicList = ({ topicData = [] }) => {
                 key={topic.id}
                 to={`/topics/${topic.slug}`}
                 onClick={() => handleTopicClick(topic.slug)}
-                className="hover:text-[#f06c00] transition-colors duration-200 text-left"
+                className="hover:text-[#cc0700] transition-colors duration-200 text-left"
               >
                 {topic.name}
               </Link>
@@ -44,7 +44,7 @@ const TopicList = ({ topicData = [] }) => {
       {hasMoreTopics && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-base md:text-lg font-medium flex items-center gap-1 text-[#f06c00] hover:text-[#cb7e3f] transition-colors duration-200"
+          className="text-base md:text-lg font-medium flex items-center gap-1 text-[#cc0700] hover:text-[#cb3f3f] transition-colors duration-200"
         >
           <span>{isExpanded ? "See Less" : "See More"}</span>
           <span className="text-sm">
@@ -56,7 +56,7 @@ const TopicList = ({ topicData = [] }) => {
                 viewBox="0 0 24 24"
               >
                 <path
-                  fill="#f06c00"
+                  fill="#cc0700"
                   d="m12 11.828l-2.828 2.829l-1.415-1.414L12 9l4.243 4.243l-1.415 1.414z"
                 />
               </svg>
@@ -68,7 +68,7 @@ const TopicList = ({ topicData = [] }) => {
                 viewBox="0 0 24 24"
               >
                 <path
-                  fill="#f06c00"
+                  fill="#cc0700"
                   d="m12 15l-4.243-4.242l1.415-1.414L12 12.172l2.828-2.828l1.415 1.414z"
                 />
               </svg>
