@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="flex mt-10 grow m-0 w-full bg-[#404040] px-3 md:px-[9%] py-12">
+        <div className="flex mt-10 grow m-0 w-full bg-[#cc0700] px-3 md:px-[9%] py-12">
           <div className="flex flex-col gap-10 text-sm text-white">
             <p className="text-lg font-semibold">
               <span className="text-xl lg:text-4xl font-bold">StatsGH</span>
