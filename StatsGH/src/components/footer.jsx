@@ -20,10 +20,10 @@ const Footer = () => {
                 reporting.
               </article>
               <div className="flex md:flex-col gap-4 font-bold mt-8 md:mt-0">
-                <Link to={"/about-us"} className="hover:text-[#cc0700]">
+                <Link to={"/about-us"} >
                   About us
                 </Link>
-                <Link to={"/contact-us"} className="hover:text-[#cc0700]">
+                <Link to={"/contact-us"} >
                   Contact us
                 </Link>
               </div>
