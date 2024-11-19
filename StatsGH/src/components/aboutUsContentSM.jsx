@@ -1,4 +1,4 @@
-import BannerIMG from "../assets/images/About-Us-Banner-Image.jpeg";
+import BannerIMG from "../assets/images/freepik__enhance__6569.png";
 
 const AboutUSContentSM = () => {
   return (
