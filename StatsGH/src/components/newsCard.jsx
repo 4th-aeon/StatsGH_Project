@@ -38,7 +38,7 @@ const NewsCard = ({ articleData, className }) => {
             <></>
           )}
         </div>
-        <p className="text-[#393939] text-xl lg:text-2xl leading-tight transition-colors duration-700 ease-in-out hover:text-[#f06c00] font-EB font-semibold">
+        <p className="text-[#393939] text-xl lg:text-2xl leading-tight transition-colors duration-700 ease-in-out hover:text-[#cc0700] font-EB font-semibold">
           {articleData.main_title.charAt(0).toUpperCase() +
             articleData.main_title.slice(1)}
         </p>
