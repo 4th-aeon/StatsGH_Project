@@ -39,12 +39,14 @@ const AboutUsContent = () => {
         understanding numbers shouldn’t be a challenge. Our mission is to make
         statistical data meaningful and accessible for everyday Ghanaians.
         <br />
+        {""}
         From economic trends and health stats to education figures and beyond,
         we present the facts in plain language, ensuring that everyone can
         engage with the data shaping our nation. Whether you’re a student,
         professional, or just curious, StatsGH is here to inform, educate, and
         empower you with knowledge.
         <br />
+        {""}
         At StatsGH, numbers tell stories, and we make sure you understand them.
       </p>
       {/* Socials */}
