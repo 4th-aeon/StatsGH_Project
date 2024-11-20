@@ -50,7 +50,7 @@ const AboutUSContentSM = () => {
           </a>
 
           <a
-            href="https://x.com/GhanaCrimes?t=xLbwf9MCnRgux047Ns7jRw&s=09"
+            href="https://x.com/StatsGH?t=rKrLInpeRYou4g03Hcto2A&s=08"
             className="ml-2 text-sm font-semibold hover:text-[#cc0700]"
           >
             <svg
@@ -65,7 +65,7 @@ const AboutUSContentSM = () => {
           </a>
 
           <a
-            href="https://www.instagram.com/ghanacrimes/profilecard/?igsh=OHhydXM3NGw0eG1j"
+            href="https://www.instagram.com/statsgh?igsh=MnNraXRzNzZyNHJu"
             className="ml-2 text-sm font-semibold hover:text-[#cc0700]"
           >
             <svg
