@@ -34,25 +34,20 @@ const AboutUsContent = () => {
       {/* About Us Content */}
       <p className="font-EB mt-5  lg:text-2xl font-black ">ABOUT STATSGH</p>
       <p className="text-2xl leading-loose font-EB">
-        StatsGH is dedicated to raising awareness and enhancing safety across
-        Ghana through accurate, timely, and comprehensive crime reporting.
+        Welcome to StatsGH, Ghana’s trusted source for breaking down complex
+        statistics into simple, relatable insights. At StatsGH, we believe that
+        understanding numbers shouldn’t be a challenge. Our mission is to make
+        statistical data meaningful and accessible for everyday Ghanaians.
         <br />
         {""}
-        Specializing in coverage of corruption, robbery, and murder, our
-        platform provides real-time updates and exclusive reports to keep
-        Ghanaians informed about critical issues affecting their communities.
+        From economic trends and health stats to education figures and beyond,
+        we present the facts in plain language, ensuring that everyone can
+        engage with the data shaping our nation. Whether you’re a student,
+        professional, or just curious, StatsGH is here to inform, educate, and
+        empower you with knowledge.
         <br />
         {""}
-        Partnering closely with local law enforcement, we prioritize accuracy
-        and integrity in our reporting, offering insights that go beyond the
-        headlines. At StatsGH, we believe that awareness is a powerful tool for
-        community safety, justice, and accountability.
-        <br />
-        {""}
-        By bringing hidden stories to light and covering high-impact cases, our
-        mission is to foster dialogue, vigilance, and informed action among our
-        readers. Join us in staying alert to the realities of crime and its
-        impact, and together, let’s build a safer, more informed Ghana.
+        At StatsGH, numbers tell stories, and we make sure you understand them.
       </p>
       {/* Socials */}
       <p className="font-EB my-5 text-2xl font-black">Our socials</p>
