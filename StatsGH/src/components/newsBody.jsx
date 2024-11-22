@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { fetchNewsArticle, fetchNewsTopicsCategory } from "../api/newsReadAPI";
 import { AuthContext } from "../context/context";
-import AdvertisementSection from "./adsComponents"; 
+import AdvertisementSection from "./adsComponents";
 import moment from "moment";
 
 const NewsComponent = () => {
@@ -12,7 +12,9 @@ const NewsComponent = () => {
   const [loadingRelated, setLoadingRelated] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [fullName, setFullName] = useState("");
   const [message, setMessage] = useState("");
+  const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const { slug } = useParams();
   const [articleId, setArticleId] = useState();
 
@@ -90,76 +92,63 @@ const NewsComponent = () => {
     }
 
     return relatedArticles.map((relatedArticle) => (
-      <>
-      {/* Mobile */}
-      <Link
-        key={relatedArticle.id}
-        to={`/news/${relatedArticle.slug}`}
-        className="group md:hidden flex gap-3 border-b pb-7 mt-3"
-      >
-        {" "}
-        <div
-          className=" w-full h-[125px] object-contain bg-cover bg-center transition-transform duration-300 "
-          style={{
-            backgroundImage: `url(${relatedArticle.image?.image || ""})`,
-            backgroundColor: "#f2f2f2",
-          }}
-        />
-        {/* <p className="text-sm text-[#f06c00] mt-2">
-        {relatedArticle.topic?.toUpperCase()}
-      </p> */}
-        <div>
-          <p className="text-[#393939] text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
-            {relatedArticle.main_title}
-          </p>
-        </div>
-      </Link>
-      {/* Tablet, Desktop */}
-      <Link
-        key={relatedArticle.id}
-        to={`/news/${relatedArticle.slug}`}
-        className="group hidden md:block"
-      >
-        <div>
-          {" "}
+      <React.Fragment key={`related-${relatedArticle.id}`}>
+        {/* Mobile */}
+        <Link
+          to={`/news/${relatedArticle.slug}`}
+          className="group md:hidden flex gap-3 border-b pb-7 mt-3"
+        >
           <div
-            className=" h-52 object-cover bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+            className=" w-full h-[125px] object-contain bg-cover bg-center "
             style={{
               backgroundImage: `url(${relatedArticle.image?.image || ""})`,
               backgroundColor: "#f2f2f2",
             }}
           />
-          {/* <p className="text-sm text-[#f06c00] mt-2">
-        {relatedArticle.topic?.toUpperCase()}
-      </p> */}
-          <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
-            {relatedArticle.main_title}
-          </p>
-        </div>
-      </Link>
-    </>
+          <div>
+            <p className="text-[#393939] text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
+              {relatedArticle.main_title}
+            </p>
+          </div>
+        </Link>
+        {/* Tablet, Desktop */}
+        <Link
+          to={`/news/${relatedArticle.slug}`}
+          className="group hidden md:block"
+        >
+          <div>
+            <div
+              className=" h-52 object-cover bg-cover bg-center "
+              style={{
+                backgroundImage: `url(${relatedArticle.image?.image || ""})`,
+                backgroundColor: "#f2f2f2",
+              }}
+            />
+            <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
+              {relatedArticle.main_title}
+            </p>
+          </div>
+        </Link>
+      </React.Fragment>
     ));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!message.trim()) {
-        alert("Please enter a message");
+      if (!message.trim() || !fullName.trim()) {
+        alert("Please enter your name and comment message");
         return;
       }
 
-      await handleComment(message, articleId);
-      alert("Your message has been sent successfully!");
+      await handleComment(fullName, message, article.id);
+      alert("Your comment has been added successfully!");
+      setFullName("");
       setMessage("");
       window.location.reload();
     } catch (error) {
-      if (error.message === "Please login to add a comment") {
-        setIsLoginOpen(true);
-      } else {
-        console.error("Comment error:", error);
-        alert("Error posting comment. Please try again.");
-      }
+      console.error("Comment error:", error);
+      alert("Error posting comment. Please try again.");
     }
   };
 
@@ -240,16 +229,16 @@ const NewsComponent = () => {
                 Published:{" "}
                 {article?.created_at
                   ? moment(article.created_at)
-                    .utcOffset(0)
-                    .format("D MMM, YYYY [GMT]")
+                      .utcOffset(0)
+                      .format("D MMM, YYYY [GMT]")
                   : "N/A"}
               </p>
               <p>
                 Updated:{" "}
                 {article?.updated_at
                   ? moment(article.updated_at)
-                    .utcOffset(0)
-                    .format("ddd D MMM YYYY HH:mm [GMT]")
+                      .utcOffset(0)
+                      .format("ddd D MMM YYYY HH:mm [GMT]")
                   : "N/A"}
               </p>
             </div>
@@ -320,38 +309,75 @@ const NewsComponent = () => {
             <hr className="mb-4 border-b border-[#AEAEAE] border-dotted" />
           </div>
 
-          {!isLoggedIn ? (
-            <p>
-              Log in{" "}
-              <span
-                className="cursor-pointer text-[#cc0700]"
-                onClick={() => setIsLoginOpen(true)}
+          {/* Input section for comment */}
+          <div
+            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${
+              showCommentOverlay
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <div className="bg-white mx-6 p-6 shadow-lg w-full max-w-[700px] relative">
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                onClick={() => setShowCommentOverlay(false)}
               >
-                here
-              </span>{" "}
-              to leave a comment
-            </p>
-          ) : (
-            <div className="mt-4">
-              <p>Leave a comment down below</p>
-              <div>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="border px-3 py-2 w-full outline-none h-52 mt-4"
-                  required
-                  placeholder="Write your comment here..."
-                />
-                <button
-                  onClick={handleSubmit}
-                  type="submit"
-                  className="bg-[#cc0700] text-white px-4 py-2 font-semibold text-sm cursor-pointer hover:bg-[#cc0700]"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  Comment
-                </button>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="mt-4">
+                <p>Leave a comment down below</p>
+                <div>
+                  <input
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className={`border-4 px-3 py-2 w-full outline-none mt-4 ${
+                      fullName ? "border-[#cc0700]" : "border"
+                    }`}
+                    required
+                    placeholder="Full Name"
+                  />
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className={`border-4 px-3 py-2 w-full outline-none h-auto mt-4 ${
+                      message ? "border-[#cc0700]" : "border"
+                    }`}
+                    required
+                    placeholder="Write your comment here"
+                  />
+                  <div className="text-center mt-8">
+                    <button
+                      onClick={handleSubmit}
+                      type="submit"
+                      className="bg-[#cc0700] text-white text-center px-4 py-2 font-semibold text-sm cursor-pointer hover:bg-[#cc0700]"
+                    >
+                      Submit Comment
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-          )}
+          </div>
+
+          <button
+            className="bg-[#cc0700] mt-4 text-white px-4 py-2 font-semibold text-sm cursor-pointer hover:bg-[#cc0700]"
+            onClick={() => setShowCommentOverlay(true)}
+          >
+            Leave Comment
+          </button>
 
           <div className="space-y-4 mt-4">
             {Array.isArray(article?.comments) && article.comments.length > 0 ? (
