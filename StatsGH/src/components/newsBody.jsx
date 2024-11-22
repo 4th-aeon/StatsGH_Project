@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { fetchNewsArticle, fetchNewsTopicsCategory } from "../api/newsReadAPI";
 import { AuthContext } from "../context/context";
-import AdvertisementSection from "./adsComponents"; 
+import AdvertisementSection from "./adsComponents";
 import moment from "moment";
 
 const NewsComponent = () => {
@@ -90,54 +90,44 @@ const NewsComponent = () => {
     }
 
     return relatedArticles.map((relatedArticle) => (
-      <>
-      {/* Mobile */}
-      <Link
-        key={relatedArticle.id}
-        to={`/news/${relatedArticle.slug}`}
-        className="group md:hidden flex gap-3 border-b pb-7 mt-3"
-      >
-        {" "}
-        <div
-          className=" w-full h-[125px] object-contain bg-cover bg-center transition-transform duration-300 "
-          style={{
-            backgroundImage: `url(${relatedArticle.image?.image || ""})`,
-            backgroundColor: "#f2f2f2",
-          }}
-        />
-        {/* <p className="text-sm text-[#f06c00] mt-2">
-        {relatedArticle.topic?.toUpperCase()}
-      </p> */}
-        <div>
-          <p className="text-[#393939] text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
-            {relatedArticle.main_title}
-          </p>
-        </div>
-      </Link>
-      {/* Tablet, Desktop */}
-      <Link
-        key={relatedArticle.id}
-        to={`/news/${relatedArticle.slug}`}
-        className="group hidden md:block"
-      >
-        <div>
-          {" "}
+      <React.Fragment key={`related-${relatedArticle.id}`}>
+        {/* Mobile */}
+        <Link
+          to={`/news/${relatedArticle.slug}`}
+          className="group md:hidden flex gap-3 border-b pb-7 mt-3"
+        >
           <div
-            className=" h-52 object-cover bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+            className=" w-full h-[125px] object-contain bg-cover bg-center "
             style={{
               backgroundImage: `url(${relatedArticle.image?.image || ""})`,
               backgroundColor: "#f2f2f2",
             }}
           />
-          {/* <p className="text-sm text-[#f06c00] mt-2">
-        {relatedArticle.topic?.toUpperCase()}
-      </p> */}
-          <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
-            {relatedArticle.main_title}
-          </p>
-        </div>
-      </Link>
-    </>
+          <div>
+            <p className="text-[#393939] text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
+              {relatedArticle.main_title}
+            </p>
+          </div>
+        </Link>
+        {/* Tablet, Desktop */}
+        <Link
+          to={`/news/${relatedArticle.slug}`}
+          className="group hidden md:block"
+        >
+          <div>
+            <div
+              className=" h-52 object-cover bg-cover bg-center "
+              style={{
+                backgroundImage: `url(${relatedArticle.image?.image || ""})`,
+                backgroundColor: "#f2f2f2",
+              }}
+            />
+            <p className="text-[#393939] pt-3 text-xl lg:text-2xl leading-tight group-hover:text-[#cc0700] font-EB font-semibold transition-colors duration-300">
+              {relatedArticle.main_title}
+            </p>
+          </div>
+        </Link>
+      </React.Fragment>
     ));
   };
 
@@ -240,16 +230,16 @@ const NewsComponent = () => {
                 Published:{" "}
                 {article?.created_at
                   ? moment(article.created_at)
-                    .utcOffset(0)
-                    .format("D MMM, YYYY [GMT]")
+                      .utcOffset(0)
+                      .format("D MMM, YYYY [GMT]")
                   : "N/A"}
               </p>
               <p>
                 Updated:{" "}
                 {article?.updated_at
                   ? moment(article.updated_at)
-                    .utcOffset(0)
-                    .format("ddd D MMM YYYY HH:mm [GMT]")
+                      .utcOffset(0)
+                      .format("ddd D MMM YYYY HH:mm [GMT]")
                   : "N/A"}
               </p>
             </div>
