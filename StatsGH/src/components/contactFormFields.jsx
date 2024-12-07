@@ -109,7 +109,7 @@ const ContactFormField = () => {
 
               <a
                 className="border-b-2 border-[#cc0700]"
-                href="https://wa.me/qr/3YB2MTKZPFXUB1"
+                href="tel:+46764057140"
               >
                 +46764057140
               </a>
