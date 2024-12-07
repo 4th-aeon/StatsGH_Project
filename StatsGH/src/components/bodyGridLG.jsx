@@ -7,14 +7,13 @@ import AdvertisementSection from "./adsComponents";
 
 const BodyGridLG = () => {
   const [articles, setArticles] = useState([]);
-  const CACHE_DURATION = 300000
+  const CACHE_DURATION = 300000;
 
   useEffect(() => {
     const getCrimeData = async () => {
       try {
-
-        const cachedData = localStorage.getItem('crimeArticles');
-        const cacheTime = localStorage.getItem('crimeArticlesTimestamp');
+        const cachedData = localStorage.getItem("crimeArticles");
+        const cacheTime = localStorage.getItem("crimeArticlesTimestamp");
 
         if (cachedData && cacheTime) {
           const now = new Date().getTime();
@@ -28,12 +27,14 @@ const BodyGridLG = () => {
         const data = await getCrimes();
         setArticles(data.results);
 
-
-        localStorage.setItem('crimeArticles', JSON.stringify(data.results));
-        localStorage.setItem('crimeArticlesTimestamp', new Date().getTime().toString());
+        localStorage.setItem("crimeArticles", JSON.stringify(data.results));
+        localStorage.setItem(
+          "crimeArticlesTimestamp",
+          new Date().getTime().toString()
+        );
       } catch (err) {
         console.log(err);
-        const cachedData = localStorage.getItem('crimeArticles');
+        const cachedData = localStorage.getItem("crimeArticles");
         if (cachedData) {
           setArticles(JSON.parse(cachedData));
         }
@@ -50,12 +51,16 @@ const BodyGridLG = () => {
     try {
       const data = await getCrimes();
       const newArticles = data.results;
-      const cachedArticles = JSON.parse(localStorage.getItem('crimeArticles')) || [];
+      const cachedArticles =
+        JSON.parse(localStorage.getItem("crimeArticles")) || [];
 
       if (newArticles.length > cachedArticles.length) {
         setArticles(newArticles);
-        localStorage.setItem('crimeArticles', JSON.stringify(newArticles));
-        localStorage.setItem('crimeArticlesTimestamp', new Date().getTime().toString());
+        localStorage.setItem("crimeArticles", JSON.stringify(newArticles));
+        localStorage.setItem(
+          "crimeArticlesTimestamp",
+          new Date().getTime().toString()
+        );
       }
     } catch (err) {
       console.log(err);
@@ -98,7 +103,7 @@ const BodyGridLG = () => {
                             viewBox="0 0 16 16"
                           >
                             <path
-                              fill="#f06c00"
+                              fill="#cc0700"
                               d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                             ></path>
                           </svg>
@@ -129,7 +134,7 @@ const BodyGridLG = () => {
                             ? articles[3].topic?.toUpperCase()
                             : "General News".toUpperCase()}
                         </p>
-                        {articles[2].total_comments ? (
+                        {articles[3].total_comments ? (
                           <div className="flex items-center gap-x-2 text-[#cc0700]">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +143,7 @@ const BodyGridLG = () => {
                               viewBox="0 0 16 16"
                             >
                               <path
-                                fill="#f06c00"
+                                fill="#cc0700"
                                 d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                               ></path>
                             </svg>
@@ -184,7 +189,7 @@ const BodyGridLG = () => {
                               viewBox="0 0 16 16"
                             >
                               <path
-                                fill="#f06c00"
+                                fill="#cc0700"
                                 d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                               ></path>
                             </svg>
@@ -223,7 +228,7 @@ const BodyGridLG = () => {
                               ? articles[1].topic?.toUpperCase()
                               : "General News".toUpperCase()}
                           </p>
-                          {articles[2].total_comments ? (
+                          {articles[1].total_comments ? (
                             <div className="flex items-center gap-x-2 text-[#cc0700]">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -232,7 +237,7 @@ const BodyGridLG = () => {
                                 viewBox="0 0 16 16"
                               >
                                 <path
-                                  fill="#f06c00"
+                                  fill="#cc0700"
                                   d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                                 ></path>
                               </svg>
@@ -280,7 +285,7 @@ const BodyGridLG = () => {
                           viewBox="0 0 16 16"
                         >
                           <path
-                            fill="#f06c00"
+                            fill="#cc0700"
                             d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                           ></path>
                         </svg>
@@ -322,7 +327,7 @@ const BodyGridLG = () => {
                           viewBox="0 0 16 16"
                         >
                           <path
-                            fill="#f06c00"
+                            fill="#cc0700"
                             d="M8 1C3.6 1 0 3.5 0 6.5c0 2 2 3.8 4 4.8c0 2.1-2 2.8-2 2.8c2.8 0 4.4-1.3 5.1-2.1H8c4.4 0 8-2.5 8-5.5S12.4 1 8 1"
                           ></path>
                         </svg>
