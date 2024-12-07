@@ -132,7 +132,7 @@ const ContactFormField = () => {
               </svg>
 
               <a
-                className="border-b-2 border-[#cc0700]"
+                
                 href="https://wa.me/qr/3YB2MTKZPFXUB1"
               >
                 WhatsApp us
