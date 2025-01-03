@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const contactAPI = "https://statsgh-api.onrender.com/api/contact-us";
+const contactAPI = "https://api.statsgh.com/api/contact-us";
 
 export const sendContactData = async (formData) => {
   try {

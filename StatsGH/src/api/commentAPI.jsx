@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const commentAPI = "https://statsgh-api.onrender.com/api/comments/";
+const commentAPI = "https://api.statsgh.com/api/comments/";
 
 export const sendComment = async (formData) => {
   toStorage(response.data.access, response.data.refresh);

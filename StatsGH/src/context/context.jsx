@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
   
   const handleComment = async (fullName, message, newsId) => {
-    const commentAPI = "https://statsgh-api.onrender.com/api/comments/";
+    const commentAPI = "https://api.statsgh.com/api/comments/";
   
     try {
       const response = await axios.post(commentAPI, {
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
 
       // Make the POST request to the server with email and password
       const response = await axios.post(
-        "https://statsgh-api.onrender.com/api/auth/login/",
+        "https://api.statsgh.com/api/auth/login/",
         {
           email: loginEmail,
           password: loginPassword,
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
     window.location.reload();
   };
 
-  const topicsAPI = "https://statsgh-api.onrender.com/api/topics/";
+  const topicsAPI = "https://api.statsgh.com/api/topics/";
 
   useEffect(() => {
     const getTopics = async () => {

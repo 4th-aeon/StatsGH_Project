@@ -79,7 +79,7 @@ const HeaderMD = () => {
 
       // Make the POST request to the server with email and password
       const response = await axios.post(
-        "https://statsgh-api.onrender.com/api/auth/login/",
+        "https://api.statsgh.com/api/auth/login/",
         {
           email: loginEmail,
           password: loginPassword,
@@ -172,7 +172,7 @@ const HeaderMD = () => {
     SetLoading(true);
     try {
       const response = await axios.post(
-        "https://statsgh-api.onrender.com/api/auth/signup/",
+        "https://api.statsgh.com/api/auth/signup/",
         {
           first_name,
           last_name,
