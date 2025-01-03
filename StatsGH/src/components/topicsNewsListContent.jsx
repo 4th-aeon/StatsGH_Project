@@ -32,7 +32,7 @@ const TopicsNewsListContent = () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://statsgh-api.onrender.com/api/topics/${slug}/?page=${pagination}`
+          `https://api.statsgh.com/api/topics/${slug}/?page=${pagination}`
         );
         const data = await response.json();
 

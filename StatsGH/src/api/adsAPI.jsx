@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://statsgh-api.onrender.com/api";
+const BASE_URL = "https://api.statsgh.com/api";
 
 export const advertisementAPI = {
   // Function to create advertisement request
