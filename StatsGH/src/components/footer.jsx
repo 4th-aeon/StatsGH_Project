@@ -14,10 +14,7 @@ const Footer = () => {
 
             <section className="grid md:grid-cols-3 md:gap-11 lg:text-sm ">
               <article>
-                StatsGH is one of the world’s leading news organizations,
-                internationally recognized for its journalistic authority,
-                commitment to integrity, and dedication to accuracy in
-                reporting.
+              StatsGH is a news organization dedicated to curating stories from numerical data found in everyday Ghanaian news, with a focus on accuracy and reliability.
               </article>
               <div className="flex md:flex-col gap-4 font-bold mt-8 md:mt-0">
                 <Link to={"/about-us"}>About us</Link>
