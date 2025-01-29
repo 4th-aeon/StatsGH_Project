@@ -99,6 +99,7 @@ const AdvertisementSection = ({medium = false}) => {
               )}
               <h3 className="text-center text-xl font-bold mb-2 text-[#212529]">
                 {ad.title}
+
               </h3>
               {/* <p className="text-[#666666] mb-4 text-sm">
                 {currentAd.description}
