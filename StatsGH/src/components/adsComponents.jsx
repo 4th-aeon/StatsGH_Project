@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchAdvertisements } from "../api/adsAPI";
-
-const AdvertisementSection = () => {
+import AdImage from "../assets/images/calabasheAd.jpg"
+const AdvertisementSection = ({medium = false}) => {
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -87,7 +87,7 @@ const AdvertisementSection = () => {
                   className="block"
                 >
                   <img
-                    src={currentAd.imageUrl}
+                    src={medium? AdImage:currentAd.imageUrl}
                     alt={currentAd.title}
                     className="w-full h-48 object-cover mb-4"
                     onError={(e) => {

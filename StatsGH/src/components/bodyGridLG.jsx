@@ -361,7 +361,7 @@ const BodyGridLG = () => {
       </div>
 
       <div className="my-11">
-        <AdvertisementSection />
+        <AdvertisementSection medium={true}/>
       </div>
 
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-3 max-lg:gap-y-8 mt-16">
