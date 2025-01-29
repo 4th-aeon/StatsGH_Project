@@ -89,7 +89,7 @@ const AdvertisementSection = ({medium = false}) => {
                   <img
                     src={medium? AdImage:currentAd.imageUrl}
                     alt={currentAd.title}
-                    className="w-full h-48 object-cover mb-4"
+                    className="w-full h-auto md:h-48 object-cover mb-4"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.style.display = "none";
