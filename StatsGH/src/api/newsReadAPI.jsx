@@ -8,7 +8,6 @@ export const fetchNewsArticle = async (slug) => {
 
     const url = `${BASE_URL}/news/${slug}/`;
     const response = await axios.get(url);
-
     return response.data;
   } catch (error) {
     const errorMessage = error.response

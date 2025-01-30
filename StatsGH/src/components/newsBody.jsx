@@ -16,10 +16,45 @@ const NewsComponent = () => {
   const [message, setMessage] = useState("");
   const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const { slug } = useParams();
+
   const [articleId, setArticleId] = useState();
 
   const { isLoginOpen, setIsLoginOpen, isLoggedIn, handleComment } =
     useContext(AuthContext);
+
+    const ParseAndInject = (html) => {
+      // Split content by closing paragraph tags
+      const parts = html.split('</p>');
+      
+      return parts.map((part, index) => {
+        if (!part.trim()) return null;
+        
+        const content = part + '</p>';
+        
+        if (content.includes('<p>&nbsp;</p>')) {
+          return null;
+        }
+
+        if (content.includes('<ul>')) {
+          return (
+            <div 
+              key={`content-${index}`}
+              dangerouslySetInnerHTML={{ __html: content }} 
+            />
+          );
+        }
+  
+        return (
+          <React.Fragment key={`content-${index}`}>
+            <div
+              className="mt-5 text-gray-700 text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            {<AdvertisementSection/>}
+          </React.Fragment>
+        );
+      });
+    };
 
   useEffect(() => {
     async function loadArticle() {
@@ -30,7 +65,6 @@ const NewsComponent = () => {
 
         const data = await fetchNewsArticle(slug);
         setArticle(data);
-
         setArticleId(data.id);
 
         if (data.topic) {
@@ -297,10 +331,11 @@ const NewsComponent = () => {
             {article?.sub_title}
           </p>
 
-          <div
+          {/* <div
             className="mt-5 text-[#393939] font-EB lg:text-2xl leading-loose"
             dangerouslySetInnerHTML={{ __html: article?.description }}
-          />
+          /> */}
+          {ParseAndInject(article?.description)}
 
           <div id="comments" className="mt-8">
             <p className="font-EB font-bold text-lg">
