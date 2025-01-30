@@ -16,6 +16,7 @@ const NewsComponent = () => {
   const [message, setMessage] = useState("");
   const [showCommentOverlay, setShowCommentOverlay] = useState(false);
   const { slug } = useParams();
+  let adCount = 0
 
   const [articleId, setArticleId] = useState();
 
@@ -23,39 +24,50 @@ const NewsComponent = () => {
     useContext(AuthContext);
 
   const ParseAndInject = (html) => {
-
+    // Split the content into parts
     const parts = html.split('</p>');
 
+    // Filter out empty parts and unnecessary spaces
     const validParts = parts.filter(part => {
       const trimmed = part.trim();
       return trimmed && !trimmed.includes('<p>&nbsp;</p>');
     });
 
+    // Calculate the middle index
     const middleIndex = Math.floor(validParts.length / 2);
 
-    return validParts.map((part, index) => {
+    // Create the final content array
+    const contentArray = [];
+
+    validParts.forEach((part, index) => {
       const content = part + '</p>';
 
+      // Handle content with unordered lists
       if (content.includes('<ul>')) {
-        return (
+        contentArray.push(
           <div
             key={`content-${index}`}
             dangerouslySetInnerHTML={{ __html: content }}
           />
         );
-      }
-
-      return (
-        <React.Fragment key={`content-${index}`}>
+      } else {
+        contentArray.push(
           <div
+            key={`content-${index}`}
             className="mt-5 text-gray-700 text-lg leading-relaxed"
             dangerouslySetInnerHTML={{ __html: content }}
           />
-          {index === middleIndex && <AdvertisementSection />}
-        </React.Fragment>
-      );
+        );
+      }
+
+      // Insert advertisement only once at the middle index
+      if (index === middleIndex) {
+        contentArray.push(<AdvertisementSection key="advertisement" />);
+      }
     });
-  };
+
+    return contentArray;
+  }
 
 
   useEffect(() => {
@@ -349,8 +361,8 @@ const NewsComponent = () => {
           {/* Input section for comment */}
           <div
             className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${showCommentOverlay
-                ? "opacity-100"
-                : "opacity-0 pointer-events-none"
+              ? "opacity-100"
+              : "opacity-0 pointer-events-none"
               }`}
           >
             <div className="bg-white mx-6 p-6 shadow-lg w-full overflow-y-scroll max-w-[700px] max-h-96 relative">
