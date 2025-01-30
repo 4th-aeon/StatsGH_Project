@@ -22,39 +22,41 @@ const NewsComponent = () => {
   const { isLoginOpen, setIsLoginOpen, isLoggedIn, handleComment } =
     useContext(AuthContext);
 
-    const ParseAndInject = (html) => {
-      // Split content by closing paragraph tags
-      const parts = html.split('</p>');
-      
-      return parts.map((part, index) => {
-        if (!part.trim()) return null;
-        
-        const content = part + '</p>';
-        
-        if (content.includes('<p>&nbsp;</p>')) {
-          return null;
-        }
+  const ParseAndInject = (html) => {
 
-        if (content.includes('<ul>')) {
-          return (
-            <div 
-              key={`content-${index}`}
-              dangerouslySetInnerHTML={{ __html: content }} 
-            />
-          );
-        }
-  
+    const parts = html.split('</p>');
+
+    const validParts = parts.filter(part => {
+      const trimmed = part.trim();
+      return trimmed && !trimmed.includes('<p>&nbsp;</p>');
+    });
+
+    const middleIndex = Math.floor(validParts.length / 2);
+
+    return validParts.map((part, index) => {
+      const content = part + '</p>';
+
+      if (content.includes('<ul>')) {
         return (
-          <React.Fragment key={`content-${index}`}>
-            <div
-              className="mt-5 text-gray-700 text-lg leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-            {<AdvertisementSection/>}
-          </React.Fragment>
+          <div
+            key={`content-${index}`}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         );
-      });
-    };
+      }
+
+      return (
+        <React.Fragment key={`content-${index}`}>
+          <div
+            className="mt-5 text-gray-700 text-lg leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+          {index === middleIndex && <AdvertisementSection />}
+        </React.Fragment>
+      );
+    });
+  };
+
 
   useEffect(() => {
     async function loadArticle() {
@@ -263,16 +265,16 @@ const NewsComponent = () => {
                 Published:{" "}
                 {article?.created_at
                   ? moment(article.created_at)
-                      .utcOffset(0)
-                      .format("D MMM, YYYY [GMT]")
+                    .utcOffset(0)
+                    .format("D MMM, YYYY [GMT]")
                   : "N/A"}
               </p>
               <p>
                 Updated:{" "}
                 {article?.updated_at
                   ? moment(article.updated_at)
-                      .utcOffset(0)
-                      .format("ddd D MMM YYYY HH:mm [GMT]")
+                    .utcOffset(0)
+                    .format("ddd D MMM YYYY HH:mm [GMT]")
                   : "N/A"}
               </p>
             </div>
@@ -346,11 +348,10 @@ const NewsComponent = () => {
 
           {/* Input section for comment */}
           <div
-            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${
-              showCommentOverlay
+            className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-opacity duration-300 ${showCommentOverlay
                 ? "opacity-100"
                 : "opacity-0 pointer-events-none"
-            }`}
+              }`}
           >
             <div className="bg-white mx-6 p-6 shadow-lg w-full overflow-y-scroll max-w-[700px] max-h-96 relative">
               <button
@@ -378,18 +379,16 @@ const NewsComponent = () => {
                   <input
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className={`border-4 px-3 py-2 w-full outline-none mt-4 ${
-                      fullName ? "border-[#cc0700]" : "border"
-                    }`}
+                    className={`border-4 px-3 py-2 w-full outline-none mt-4 ${fullName ? "border-[#cc0700]" : "border"
+                      }`}
                     required
                     placeholder="Full Name"
                   />
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className={`border-4 px-3 py-2 w-full outline-none h-auto mt-4 ${
-                      message ? "border-[#cc0700]" : "border"
-                    }`}
+                    className={`border-4 px-3 py-2 w-full outline-none h-auto mt-4 ${message ? "border-[#cc0700]" : "border"
+                      }`}
                     required
                     placeholder="Write your comment here"
                   />
